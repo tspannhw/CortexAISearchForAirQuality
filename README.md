@@ -43,5 +43,41 @@ SELECT SNOWFLAKE.CORTEX.COMPLETE( 'llama2-70b-chat', 'You are an expert air qual
 When answering the question contained between <question> and </question> tags be concise, please provide a complete report and do not hallucinate. If you don´t have the information just say so.
 Only answer the question if you can extract it from the CONTEXT provideed. Do not mention the CONTEXT used in your answer.<context>${flow:trim()}</context><question>${inputs:trim()}</question>Answer:' ) as aqchat;
 ````
+* SplitRecord
+* EvaluateJsonPath
+* PublishSlack:   with  Thread Timestamp ${theadTs:isNull():ifElse(${ts},${threadTs})} and include flow file as attachment
 
+````
+======= AIRQUALITY ===========================================================================================
+
+--- From Apache NiFi --- 
+    UUID: ${uuid}
+    Date: ${date}
+
+--- Snowflake SQL Results
+
+Row Query Duration: ${executesql.query.duration}
+Row Execution Time: ${executesql.query.executiontime}
+Row fetch time: ${executesql.query.fetchtime}
+Row indx: ${executesql.resultset.index}
+Row count: ${executesql.row.count}z
+
+--- Cortex Search Results
+
+Air Quality Search Single Result
+${AIRQUALITY_TEXT}
+AQI : ${AQI}
+DATEOBSERVED : ${DATEOBSERVED}
+HOUROBSERVED : ${HOUROBSERVED}
+PARAMETERNAME : ${PARAMETERNAME}
+REPORTINGAREA : ${REPORTINGAREA}
+STATECODE : ${STATECODE}
+
+--- flow: ${flow}
+
+--- Cortex AI RAG Results
+
+${content}
+===========================================================================================
+````  
 
