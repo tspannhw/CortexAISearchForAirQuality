@@ -193,3 +193,4 @@ select * from demo.demo.aq where statecode = 'MA' and reportingarea ='Boston' or
 
 * https://docs.snowflake.com/en/user-guide/snowflake-cortex/complete-multimodal#process-images
 * https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/tutorials/cortex-search-tutorial-1-search#step-3-create-the-search-service
+* https://github.com/sfc-gh-tspann/DataAIDemos/blob/main/datasummit25.md
