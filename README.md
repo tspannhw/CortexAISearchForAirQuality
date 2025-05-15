@@ -48,6 +48,7 @@ Only answer the question if you can extract it from the CONTEXT provideed. Do no
 * PublishSlack:   with  Thread Timestamp ${theadTs:isNull():ifElse(${ts},${threadTs})} and include flow file as attachment
 
 ````
+
 ======= AIRQUALITY ===========================================================================================
 
 --- From Apache NiFi --- 
@@ -82,6 +83,34 @@ ${content}
 ````  
 
 
+### Process Flow:
+
+
+1. ListenSlack: Receives messages from a Slack channel.
+
+2.  EvaluateJsonPath: Extracts data from the Slack message (assumed to be in JSON format) using JSONPath expressions.
+
+3.  RouteOnAttribute: Routes the flow file based on the value of an attribute extracted in the previous step.
+
+4.  EvaluateJsonPath: Extracts more data using JSONPath.
+
+5.  RouteOnAttribute: Routes flow files where an attribute, converted to uppercase, contains 'AIRQ'.
+
+6.  ExecuteSQLRecord: Executes a SQL query against Snowflake, using the Snowflake Cortex SEARCH_PREVIEW function.  The results are written as JSON.
+
+7.  SplitRecord: Splits the resulting records into individual flow files.
+
+8.  EvaluateJsonPath: Extracts data from the split records.
+
+9.  ExtractText: Extracts text from the flow file.
+
+10. ExecuteSQLRecord: Executes another SQL query against Snowflake, this time using the COMPLETE function.
+
+11. SplitRecord: Splits the resulting records.
+
+12. EvaluateJsonPath: Extracts data.
+
+13. PublishSlack: Sends a message to a Slack channel, optionally including the original Slack message as an attachment.  It also handles thread timestamps.
 
 ### Snowflake SQL
 
