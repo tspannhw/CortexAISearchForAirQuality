@@ -5,6 +5,49 @@ Dominating the Data Flow
 Flow: The Data Alchemist
 
 
+
+
+
+**Apache NiFi**
+
+A sprawling digital realm called *The Grid*, where data flows like rivers, and rogue programs threaten order.
+
+---
+
+
+In a futuristic world where data powers society, *Flow Engineers* manipulate data streams to protect and optimize the digital ecosystem. The most skilled of them can "see" data like magic — bending, transforming, and rerouting it at will.
+
+Apache NiFi is the sacred system that governs this world — a sentient flow-based processor that must be mastered to maintain harmony.
+
+
+* **Flow Magic** = NiFi’s drag-and-drop interface. Each processor (e.g. RouteOnAttribute, SplitText) is treated like a *spell*.
+* **Data Spirits** = Data Packets with hidden traits; some are corrupted and become *Wraiths* (representing bad or malicious data).
+* **The Canvas** = A real-time battlefield where Flow Engineers deploy processors and control logic.
+* **Back Pressure** = A time-based hazard that can paralyze an entire section of The Grid if flows are mismanaged.
+* **Provenance Realm** = A domain where every change in data is recorded — and where Shin uncovers secrets about his origin.
+
+
+
+
+1. **Episode 1 – "Flow Awakens"**
+   Shin crashes a data stream and accidentally creates a new flow from scratch — attracting the attention of the Flow Alchemists.
+
+2. **Episode 3 – "RouteOnHeart"**
+   In his first mission, Shin must decide how to route conflicting data based on mysterious attributes, learning the ethics of data governance.
+
+3. **Episode 6 – "Merge Conflict"**
+   Two rival factions fight over a flowfile containing a hidden payload. Shin creates a custom processor on the fly, shocking everyone.
+
+4. **Episode 9 – "Cluster Storm"**
+   A distributed attack on the NiFi Cluster threatens to split The Grid. Shin must synchronize remote processors — or let The Grid collapse.
+
+5. **Finale – "Zero Provenance"**
+   Shin dives into a corrupted Provenance Realm to confront the *Null Node*, a mythical entity erasing all data lineage — including Shin's past.
+
+
+---
+
+
 Chapter 2 – “Frozen Schema”
 
 
