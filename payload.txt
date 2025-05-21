@@ -1,0 +1,48 @@
+payload3 = {
+  "model": "llama3.3-70b",
+  "response_instruction": "You will always maintain a friendly tone, use all tools, not hallucinate and provide a concise response.",
+  "tools": [
+    {
+      "tool_spec": {
+        "type": "cortex_search",
+        "name": "aq_search"
+      }
+    },
+    {
+      "tool_spec": {
+        "type": "cortex_analyst_text_to_sql",
+        "name": "data_model"
+      }
+    },
+    {
+      "tool_spec": {
+        "type": "sql_exec",
+        "name": "sql_exec"
+      }
+    }
+  ],
+  "tool_resources": {
+    "aq_search": {
+      "name": "DEMO.DEMO.AIRQUALITY_SRVC",
+        "title_column": "DOC_TITLE",
+        "id_column": "DOC_ID"
+    },
+    "data_model": {
+      "semantic_model_file": "@DEMO.DEMO.SEMANTIC_MODELS/weather.yaml"
+    }
+  },
+  "tool_choice": {
+    "type": "auto"
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "What are the weather and air quality conditions in New York most recently?"
+        }
+      ]
+    }
+  ]
+}
